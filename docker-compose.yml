@@ -17,3 +17,9 @@ services:
     volumes:
       - /home/devops/docker-soporte:/home/vsftpd
       - ./logs:/var/log/vsftpd
+    networks: 
+      - anikama-network
+networks:
+  anikama-network:
+    name: anikama-network
+    driver: bridge
