@@ -10,6 +10,7 @@ services:
         USER_ID: 1000
         GROUP_ID: 1000
     restart: always
+    container_name: vsftpd
     ports:
       - 0.0.0.0:20:20
       - 0.0.0.0:21:21
