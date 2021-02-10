@@ -7,8 +7,8 @@ RUN yum install -y \
 	db4 \
 	iproute && yum clean all
 
-RUN usermod -u 1000 devops
-RUN groupmod -g 1000 devops
+RUN usermod -u ${USER_ID} ftp
+RUN groupmod -g ${GROUP_ID} ftp
 
 ENV FTP_USER **String**
 ENV FTP_PASS **Random**
@@ -31,7 +31,7 @@ COPY run-vsftpd.sh /usr/sbin/
 
 RUN chmod +x /usr/sbin/run-vsftpd.sh
 RUN mkdir -p /home/vsftpd/
-RUN chown -R devops:devops /home/vsftpd/
+RUN chown -R ftp:ftp /home/vsftpd/
 
 VOLUME /home/vsftpd
 VOLUME /var/log/vsftpd
